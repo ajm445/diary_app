@@ -1,11 +1,19 @@
 // services/local_storage_service.dart
+import 'package:shared_preferences/shared_preferences.dart';
+
 class LocalStorageService {
   Future<void> saveData(String key, String value) async {
-    // 저장 로직
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(key, value);
   }
 
   Future<String?> loadData(String key) async {
-    // 불러오기 로직
-    return null;
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
+  }
+
+  Future<void> removeData(String key) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(key);
   }
 }

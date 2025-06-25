@@ -6,7 +6,12 @@ class ChecklistTile extends StatelessWidget {
   final bool isDone;
   final void Function(bool?) onChanged;
 
-  const ChecklistTile({super.key, required this.title, required this.isDone, required this.onChanged});
+  const ChecklistTile({
+    super.key,
+    required this.title,
+    required this.isDone,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {

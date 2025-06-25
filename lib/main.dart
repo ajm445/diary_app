@@ -13,11 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '다이어리 앱',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.purple,
       ),
-      home: const HomeScreen(), // HomeScreen으로 시작
+      home: const HomeScreen(), // 라우트는 제거함
     );
   }
 }

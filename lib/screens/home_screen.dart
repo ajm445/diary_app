@@ -6,6 +6,7 @@ import 'calendar_screen.dart';
 import 'gallery_screen.dart';
 import 'expense_screen.dart';
 import 'checklist_screen.dart';
+import 'memo_detail_screen.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,23 +43,33 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onFabPressed() {
-    switch (_selectedIndex) {
-      case 0:
-        Navigator.pushNamed(context, '/new_memo'); // 메모 작성 화면으로
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/upload_photo'); // 사진 업로드 화면
-        break;
-      case 2:
-        showDialog(context: context, builder: (_) => AddExpenseDialog());
-        break;
-      case 3:
-        showDialog(context: context, builder: (_) => AddChecklistDialog());
-        break;
-      default:
-        break;
-    }
+  switch (_selectedIndex) {
+    case 0:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => MemoDetailScreen(initialDate: DateTime.now()),
+        ),
+      );
+      break;
+    case 1:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const GalleryScreen(),
+        ),
+      );
+      break;
+    case 2:
+      showDialog(context: context, builder: (_) => AddExpenseDialog());
+      break;
+    case 3:
+      showDialog(context: context, builder: (_) => AddChecklistDialog());
+      break;
+    default:
+      break;
   }
+}
 
   @override
   Widget build(BuildContext context) {

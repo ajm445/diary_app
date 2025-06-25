@@ -6,6 +6,7 @@ import '../services/memo_service.dart';
 
 class MemoDetailScreen extends StatefulWidget {
   final DateTime initialDate;
+
   const MemoDetailScreen({Key? key, required this.initialDate}) : super(key: key);
 
   @override
@@ -28,11 +29,13 @@ class _MemoDetailScreenState extends State<MemoDetailScreen> {
   Future<void> _save() async {
     final text = _contentCtrl.text.trim();
     if (text.isEmpty && _pickedImage == null) return;
+
     await _service.addMemo(
       content: text,
       imagePath: _pickedImage?.path,
       date: widget.initialDate,
     );
+
     Navigator.pop(context, true);
   }
 

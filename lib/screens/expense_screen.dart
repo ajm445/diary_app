@@ -1,7 +1,6 @@
 // lib/screens/expense_screen.dart
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
 import '../models/expense.dart';
 import '../services/local_storage_service.dart';
 import '../widgets/expense_chart.dart';
